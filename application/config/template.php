@@ -34,6 +34,17 @@ $config['template_sections']['default']		= array('content', 'header', 'footer', 
 $config['template_section_wrap']['default']['content']	= 'content_wrap'; // wrapper around successive items put in a section, $content is the only variable
 
 
+/**
+ * model or library definitions for autofill data
+ * model or library must be set with the name of the model or library to use to pull data for the content section
+ * the content is appended after any user added content, just prior to render
+ */
+$config['template_section_autodata']['default']['sidebar']['model'] = 'sidebar';
+$config['template_section_autodata']['default']['sidebar']['model_function_name'] = 'get_for_display';
+
+/*
+ * custom menu definitions
+ */
 $config['template_menu']['default']['main']	= 'mainmenu'; // custom menu location
 $config['template_menu']['default']['alt']	= 'altmenu'; // custom menu location
 

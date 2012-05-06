@@ -280,6 +280,25 @@ class Template {
 		$data['external_scripts'] = $this->external_script_files;
 		$data['meta'] = $this->meta;
 		$data['menu'] = $this->process_menus();
+		$auto_data = $this->CI->config->item('template_section_autodata');
+		
+		foreach ($auto_data[$this->current_template] as $section_name => $section_data)
+		{
+			if (isset($section_data['model']))
+			{
+				
+				$model_name = $section_data['model'];
+				$this->CI->load->model($model_name);
+				
+				$get_function = $section_data['model_function_name'];
+				$s_data = $this->
+					CI->
+					$model_name->
+					$get_function();
+				$this->content($section_name, $s_data);
+			}
+		}
+		
 		$data['section'] = $this->process_sections(); // prepare for display
 
 		$view_file = 'template/' . $this->template_directory . '/' . $this->CI->config->item('template_main_tpl');

@@ -1,6 +1,12 @@
 simple-template-for-codeigniter
 ===============================
 
+2012-05-05
+----------
+Added the ability to have a library or model call to automatically fill a section with data.
+look in config for the template_section_autodata variable.
+
+
 Simple template for codeigniter 2.x
 
 use the config file to define sections, templates, etc.
