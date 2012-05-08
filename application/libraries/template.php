@@ -4,8 +4,6 @@ if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
 /**
- * 2012-04-04 - added cmsg back in, changed $this->message, warning and error to check for empty string and ignore
- * 2012-04-03 - imported from vitamistmarket.com
  * created 2012-03-05
  * @author patrick
  *
@@ -61,6 +59,7 @@ class Template {
 		$menu_array = $this->CI->config->item('template_menus');
 
 		$this->current_template = $which;
+		$this->template_directory = $which;
 		$this->template_sections = $section_array[$which];
 		$this->menu_list = $menu_array[$which];
 		
